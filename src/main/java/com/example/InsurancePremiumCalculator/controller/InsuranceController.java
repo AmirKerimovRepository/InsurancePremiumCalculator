@@ -20,8 +20,7 @@ public class InsuranceController {
 
     @GetMapping(value = "/calculatePremium", produces = MediaType.APPLICATION_JSON_VALUE)
     public String getPolicy(Policy policy) {
-        policyService.calculatePremium(policy)
+        policyService.calculatePremium(policy);
     }
-
 
 }
