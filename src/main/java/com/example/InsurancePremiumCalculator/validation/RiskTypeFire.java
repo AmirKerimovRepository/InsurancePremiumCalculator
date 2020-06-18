@@ -1,35 +1,31 @@
 package com.example.InsurancePremiumCalculator.validation;
 
-import com.example.InsurancePremiumCalculator.domain.Policy;
-
 import java.math.BigDecimal;
 
-public class Theft implements PolicyRisk {
+public class RiskTypeFire implements RiskType {
 
     private Long id;
-    private double coefficientTheft;
+    private double coefficientFire;
     private InsuranceRiskType insuranceRiskType;
     private String riskName;
 
-    public Theft(Long id, InsuranceRiskType insuranceRiskType, String riskName) {
+    public RiskTypeFire(Long id, InsuranceRiskType insuranceRiskType, String riskName) {
         this.id = id;
         this.insuranceRiskType = insuranceRiskType;
         this.riskName = riskName;
     }
 
     @Override
-    public BigDecimal apply(Policy policy) {
+    public BigDecimal apply(BigDecimal value) {
 
-        if (policy.getSumInsuredTheft() >= 15) {
-            setCoefficientTheft(0.05);
+        if (value.signum() > 15) {
+            setCoefficientFire(0.024);
         } else {
-            setCoefficientTheft(0.11);
+            setCoefficientFire(0.014);
         }
-        double theftPremiumSum = policy.getSumInsuredTheft() + getCoefficientTheft();
 
-        return policy. // что то должен вернуть ;
+        return value.add(BigDecimal.valueOf(getCoefficientFire()));
     }
-
 
     public InsuranceRiskType getInsuranceRiskType() {
         return insuranceRiskType;
@@ -39,12 +35,12 @@ public class Theft implements PolicyRisk {
         this.insuranceRiskType = insuranceRiskType;
     }
 
-    public double getCoefficientTheft() {
-        return coefficientTheft;
+    public double getCoefficientFire() {
+        return coefficientFire;
     }
 
-    public void setCoefficientTheft(double coefficientTheft) {
-        this.coefficientTheft = coefficientTheft;
+    public void setCoefficientFire(double coefficientFire) {
+        this.coefficientFire = coefficientFire;
     }
 
     public Long getId() {
@@ -62,5 +58,4 @@ public class Theft implements PolicyRisk {
     public void setRiskName(String riskName) {
         this.riskName = riskName;
     }
-
 }

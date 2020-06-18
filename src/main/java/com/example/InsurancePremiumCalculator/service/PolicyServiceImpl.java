@@ -3,7 +3,6 @@ package com.example.InsurancePremiumCalculator.service;
 import com.example.InsurancePremiumCalculator.domain.InsuredObject;
 import com.example.InsurancePremiumCalculator.domain.Policy;
 import com.example.InsurancePremiumCalculator.domain.SubInsuredObject;
-import com.example.InsurancePremiumCalculator.validation.PolicyRisk;
 import com.example.InsurancePremiumCalculator.validation.RiskExecutor;
 import org.springframework.stereotype.Service;
 
@@ -19,7 +18,14 @@ public class PolicyServiceImpl  implements PolicyService {
     public double calculatePremium(Policy policy) {
         Map<InsuredObject, List<SubInsuredObject>> riskContainer = new HashMap<>();
         RiskExecutor executor = new RiskExecutor();
-        executor.execute((List<PolicyRisk>) riskContainer, policy);
+        for (InsuredObject insuredObject : policy.getInsuredObject()) {
+
+            for (SubInsuredObject subInsuredObject : insuredObject.getSubInsuredObjects()) {
+                executor.execute();
+            }
+
+        }
+
         riskContainer.clear();
         return 0;
     }

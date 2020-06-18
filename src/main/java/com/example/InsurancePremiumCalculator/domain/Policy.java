@@ -1,45 +1,27 @@
 package com.example.InsurancePremiumCalculator.domain;
 
+import java.util.List;
 import java.util.Objects;
 
 public class Policy {
 
     private String policyNumber;
     private PolicyStatus policyStatus;
-    private double sumInsuredFire;
-    private double sumInsuredTheft;
-    private InsuredObject insuredObject;
+    private List<InsuredObject> insuredObject;
 
-    public Policy(String policyNumber, PolicyStatus policyStatus, double sumInsuredFire , double sumInsuredTheft, InsuredObject insuredObject) {
+
+    public Policy(String policyNumber, PolicyStatus policyStatus, List<InsuredObject> insuredObject) {
         this.policyNumber = policyNumber;
         this.policyStatus = policyStatus;
-        this.sumInsuredFire = sumInsuredFire;
-        this.sumInsuredTheft = sumInsuredTheft;
         this.insuredObject = insuredObject;
     }
 
-    public InsuredObject getInsuredObject() {
+    public List<InsuredObject> getInsuredObject() {
         return insuredObject;
     }
 
-    public void setInsuredObject(InsuredObject insuredObject) {
+    public void setInsuredObject(List<InsuredObject> insuredObject) {
         this.insuredObject = insuredObject;
-    }
-
-    public double getSumInsuredFire() {
-        return sumInsuredFire;
-    }
-
-    public void setSumInsuredFire(double sumInsuredFire) {
-        this.sumInsuredFire = sumInsuredFire;
-    }
-
-    public double getSumInsuredTheft() {
-        return sumInsuredTheft;
-    }
-
-    public void setSumInsuredTheft(double sumInsuredTheft) {
-        this.sumInsuredTheft = sumInsuredTheft;
     }
 
 
@@ -65,13 +47,14 @@ public class Policy {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Policy policy = (Policy) o;
-        return policyNumber.equals(policy.policyNumber) &&
-                policyStatus == policy.policyStatus;
+        return Objects.equals(policyNumber, policy.policyNumber) &&
+                policyStatus == policy.policyStatus &&
+                Objects.equals(insuredObject, policy.insuredObject);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(policyNumber, policyStatus);
+        return Objects.hash(policyNumber, policyStatus, insuredObject);
     }
 
     @Override
@@ -79,7 +62,7 @@ public class Policy {
         return "Policy{" +
                 "policyNumber='" + policyNumber + '\'' +
                 ", policyStatus=" + policyStatus +
+                ", insuredObject=" + insuredObject +
                 '}';
     }
-
 }
