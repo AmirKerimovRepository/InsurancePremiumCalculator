@@ -8,9 +8,23 @@ public class Policy {
     private PolicyStatus policyStatus;
     private double sumInsuredFire;
     private double sumInsuredTheft;
+    private InsuredObject insuredObject;
 
-    InsuredObject insuredObject = new InsuredObject();
-    SubInsuredObject subInsuredObject = new SubInsuredObject();
+    public Policy(String policyNumber, PolicyStatus policyStatus, double sumInsuredFire , double sumInsuredTheft, InsuredObject insuredObject) {
+        this.policyNumber = policyNumber;
+        this.policyStatus = policyStatus;
+        this.sumInsuredFire = sumInsuredFire;
+        this.sumInsuredTheft = sumInsuredTheft;
+        this.insuredObject = insuredObject;
+    }
+
+    public InsuredObject getInsuredObject() {
+        return insuredObject;
+    }
+
+    public void setInsuredObject(InsuredObject insuredObject) {
+        this.insuredObject = insuredObject;
+    }
 
     public double getSumInsuredFire() {
         return sumInsuredFire;

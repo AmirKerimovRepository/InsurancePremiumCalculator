@@ -1,15 +1,14 @@
 package com.example.InsurancePremiumCalculator.controller;
 
-import com.example.InsurancePremiumCalculator.validation.InsuranceRiskType;
+import com.example.InsurancePremiumCalculator.domain.Policy;
 import com.example.InsurancePremiumCalculator.service.PolicyServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-import java.util.Map;
 
-@Controller
+@RestController
 public class InsuranceController {
 
     private final PolicyServiceImpl policyService;
@@ -19,10 +18,9 @@ public class InsuranceController {
         this.policyService = policyService;
     }
 
-    @GetMapping
-    public String getPolicy(Model model) {
-        Map <Long, InsuranceRiskType>
-        policyService.calculatePremium()
+    @GetMapping(value = "/calculatePremium", produces = MediaType.APPLICATION_JSON_VALUE)
+    public String getPolicy(Policy policy) {
+        policyService.calculatePremium(policy)
     }
 
 
