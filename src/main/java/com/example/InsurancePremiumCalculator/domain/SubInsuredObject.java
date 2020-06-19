@@ -16,11 +16,11 @@ public class SubInsuredObject {
         this.sumInsured = sumInsured;
     }
 
-    public InsuranceRiskType getInsuranceRiskEnum() {
+    public InsuranceRiskType getInsuranceRiskType() {
         return insuranceRiskType;
     }
 
-    public void setInsuranceRiskEnum(InsuranceRiskType insuranceRiskType) {
+    public void setInsuranceRiskType(InsuranceRiskType insuranceRiskType) {
         this.insuranceRiskType = insuranceRiskType;
     }
 

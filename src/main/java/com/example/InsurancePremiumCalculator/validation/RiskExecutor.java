@@ -1,14 +1,11 @@
 package com.example.InsurancePremiumCalculator.validation;
-
-import com.example.InsurancePremiumCalculator.domain.Policy;
-
+import java.math.BigDecimal;
 import java.util.List;
 
 public class RiskExecutor {
-    public void execute(List<RiskType> riskTypes, Policy policy) {
+    public void execute(List<RiskType> riskTypes, BigDecimal value) {
         for (RiskType riskType : riskTypes) {
-            riskType.apply(policy);
-
+            riskType.apply(value);
         }
     }
 }
