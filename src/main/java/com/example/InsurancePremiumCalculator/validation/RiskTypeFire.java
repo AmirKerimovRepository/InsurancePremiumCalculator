@@ -6,24 +6,25 @@ import java.math.BigDecimal;
 
 public class RiskTypeFire implements RiskType {
 
-    private Long id;
+
+    private final Long ID = 1L;
     private double coefficientFire;
     private InsuranceRiskType insuranceRiskType;
-    private String riskName;
 
-    public RiskTypeFire(Long id, InsuranceRiskType insuranceRiskType, String riskName) {
-        this.id = id;
-        this.insuranceRiskType = insuranceRiskType;
-        this.riskName = riskName;
+    private final BigDecimal SUM_INSURED_FIRE = new BigDecimal(100);
+
+    public RiskTypeFire(){
+
     }
+
 
     @Override
     public BigDecimal apply(BigDecimal value) {
-        if (value.signum() < 0) {
-            throw new IncorrectlyEnteredDataException("value cannot be negative!");
-        } else if (value.signum() > 15) {
+        if (value.compareTo(BigDecimal.ZERO) < 0) {
+            throw new IncorrectlyEnteredDataException("Value cannot be negative!");
+        } else if (value.compareTo(SUM_INSURED_FIRE) > 0) {
             setCoefficientFire(0.024);
-        } else {
+        } else  {
             setCoefficientFire(0.014);
         }
 
@@ -46,19 +47,9 @@ public class RiskTypeFire implements RiskType {
         this.coefficientFire = coefficientFire;
     }
 
-    public Long getId() {
-        return id;
+    public Long getID() {
+        return ID;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
 
-    public String getRiskName() {
-        return riskName;
-    }
-
-    public void setRiskName(String riskName) {
-        this.riskName = riskName;
-    }
 }

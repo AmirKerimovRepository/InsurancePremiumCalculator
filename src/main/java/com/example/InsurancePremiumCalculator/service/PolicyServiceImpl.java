@@ -29,6 +29,7 @@ public class PolicyServiceImpl  implements PolicyService {
                 executor.execute((List<RiskType>) riskContainer.get(subInsuredObjects.getInsuranceRiskType()), BigDecimal.valueOf(subInsuredObjects.getSumInsured()));
             }
         }
+
         policy.setPolicyStatus(PolicyStatus.REGISTERED);
         riskContainer.clear();
         return 0;
