@@ -17,7 +17,7 @@ public class InsuranceController {
         this.policyService = policyService;
     }
 
-    @GetMapping( value = "/api/v1/calculatePremium")
+    @GetMapping("/api/v1/calculatePremium")
     public String calculate(Policy policy) {
         policyService.calculatePremium(policy);
         return "";
