@@ -1,5 +1,7 @@
 package com.example.InsurancePremiumCalculator.validation;
 
+import com.example.InsurancePremiumCalculator.exception.IncorrectlyEnteredDataException;
+
 import java.math.BigDecimal;
 
 public class RiskTypeTheft implements RiskType {
@@ -17,8 +19,9 @@ public class RiskTypeTheft implements RiskType {
 
     @Override
     public BigDecimal apply(BigDecimal value) {
-
-        if (value.signum() >= 15) {
+        if (value.signum() < 0) {
+            throw new IncorrectlyEnteredDataException("value cannot be negative!");
+        } else if (value.signum() >= 15) {
             setCoefficientTheft(0.05);
         } else {
             setCoefficientTheft(0.11);
