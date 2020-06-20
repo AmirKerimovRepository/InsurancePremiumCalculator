@@ -10,20 +10,19 @@ public class RiskTypeTheft implements RiskType {
     private double coefficientTheft;
     private InsuranceRiskType insuranceRiskType;
 
-    private final BigDecimal SUM_INSURED_THEFT = new BigDecimal(15);
+    private final BigDecimal PREMIUM_DEFAULT_VALUE = new BigDecimal(15);
 
     @Override
     public BigDecimal apply(BigDecimal value) {
         if (value.compareTo(BigDecimal.ZERO) < 0) {
             throw new IncorrectlyEnteredDataException("Value cannot be negative!");
-        } else if (value.compareTo(SUM_INSURED_THEFT) >= 0) {
+        } else if (value.compareTo(PREMIUM_DEFAULT_VALUE) >= 0) {
             setCoefficientTheft(0.05);
         } else {
             setCoefficientTheft(0.11);
         }
         return value.add(BigDecimal.valueOf(getCoefficientTheft()));
     }
-
 
     public InsuranceRiskType getInsuranceRiskType() {
         return insuranceRiskType;

@@ -11,20 +11,19 @@ public class RiskTypeFire implements RiskType {
     private double coefficientFire;
     private InsuranceRiskType insuranceRiskType;
 
-    private final BigDecimal SUM_INSURED_FIRE = new BigDecimal(100);
+    private final BigDecimal PREMIUM_DEFAULT_VALUE = new BigDecimal(100);
 
-    public RiskTypeFire(){
+    public RiskTypeFire() {
 
     }
-
 
     @Override
     public BigDecimal apply(BigDecimal value) {
         if (value.compareTo(BigDecimal.ZERO) < 0) {
             throw new IncorrectlyEnteredDataException("Value cannot be negative!");
-        } else if (value.compareTo(SUM_INSURED_FIRE) > 0) {
+        } else if (value.compareTo(PREMIUM_DEFAULT_VALUE) > 0) {
             setCoefficientFire(0.024);
-        } else  {
+        } else {
             setCoefficientFire(0.014);
         }
 
