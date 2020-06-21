@@ -9,8 +9,14 @@ public class RiskTypeTheft implements RiskType {
     private final Long ID =2L;
     private double coefficientTheft;
     private InsuranceRiskType insuranceRiskType;
+    private BigDecimal value;
 
     private final BigDecimal PREMIUM_DEFAULT_VALUE = new BigDecimal(15);
+
+    // через конструктор приходит value (amount)
+    public RiskTypeTheft(BigDecimal value){
+        this.value = value;
+    }
 
     @Override
     public BigDecimal apply(BigDecimal value) {

@@ -10,11 +10,13 @@ public class RiskTypeFire implements RiskType {
     private final Long ID = 1L;
     private double coefficientFire;
     private InsuranceRiskType insuranceRiskType;
+    private BigDecimal value;
 
     private final BigDecimal PREMIUM_DEFAULT_VALUE = new BigDecimal(100);
 
-    public RiskTypeFire() {
-
+    // через конструктор приходит value (amount)
+    public RiskTypeFire(BigDecimal value){
+        this.value = value;
     }
 
     @Override

@@ -2,17 +2,21 @@ package com.example.InsurancePremiumCalculator.domain;
 
 import com.example.InsurancePremiumCalculator.validation.InsuranceRiskType;
 
+import java.math.BigDecimal;
+import java.util.Objects;
+
 public class SubInsuredObject {
 
     private String TV;
-    private double sumInsured;
+    private BigDecimal sumInsured;
     private InsuranceRiskType insuranceRiskType;
 
-    public double getSumInsured() {
+
+    public BigDecimal getSumInsured() {
         return sumInsured;
     }
 
-    public void setSumInsured(double sumInsured) {
+    public void setSumInsured(BigDecimal sumInsured) {
         this.sumInsured = sumInsured;
     }
 
@@ -33,5 +37,28 @@ public class SubInsuredObject {
     }
 
 
+    @Override
+    public String toString() {
+        return "SubInsuredObject{" +
+                "TV='" + TV + '\'' +
+                ", sumInsured=" + sumInsured +
+                ", insuranceRiskType=" + insuranceRiskType +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        SubInsuredObject that = (SubInsuredObject) o;
+        return Objects.equals(TV, that.TV) &&
+                Objects.equals(sumInsured, that.sumInsured) &&
+                insuranceRiskType == that.insuranceRiskType;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(TV, sumInsured, insuranceRiskType);
+    }
 
 }
