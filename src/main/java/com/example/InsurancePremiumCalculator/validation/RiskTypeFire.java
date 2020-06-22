@@ -23,7 +23,7 @@ public class RiskTypeFire implements RiskType {
     }
 
     @Override
-    public BigDecimal apply(BigDecimal value) {
+    public BigDecimal apply() {
         if (value.compareTo(BigDecimal.ZERO) < 0) {
             throw new IncorrectlyEnteredDataException("Value cannot be negative!");
         } else if (value.compareTo(PREMIUM_DEFAULT_VALUE) > 0) {

@@ -4,6 +4,6 @@ import java.math.BigDecimal;
 
 public interface RiskType {
 
-    BigDecimal apply(BigDecimal value);
+    BigDecimal apply();
 
 }
