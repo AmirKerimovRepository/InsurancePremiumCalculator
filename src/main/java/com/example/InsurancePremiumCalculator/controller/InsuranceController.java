@@ -18,9 +18,8 @@ public class InsuranceController {
     }
 
     @GetMapping("/api/v1/calculatePremium")
-    public String calculate(Policy policy) {
-        policyService.calculatePremium(policy);
-        return "";
+    public double calculate(Policy policy) {
+        return policyService.calculatePremium(policy);
     }
 
 }

@@ -14,9 +14,12 @@ public class RiskTypeFire implements RiskType {
 
     private final BigDecimal PREMIUM_DEFAULT_VALUE = new BigDecimal(100);
 
-    // через конструктор приходит value (amount)
+    // через конструктор приходит value (значение)
     public RiskTypeFire(BigDecimal value){
         this.value = value;
+    }
+
+    public RiskTypeFire(){
     }
 
     @Override
@@ -50,6 +53,14 @@ public class RiskTypeFire implements RiskType {
 
     public Long getID() {
         return ID;
+    }
+
+    public BigDecimal getValue() {
+        return value;
+    }
+
+    public void setValue(BigDecimal value) {
+        this.value = value;
     }
 
 
