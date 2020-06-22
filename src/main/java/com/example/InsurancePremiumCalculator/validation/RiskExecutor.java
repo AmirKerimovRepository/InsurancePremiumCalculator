@@ -4,10 +4,11 @@ import java.util.List;
 import java.util.Map;
 
 public class RiskExecutor {
-    public void execute(Map<String, List<RiskType>> riskTypes) {
+    public double execute(Map<String, List<RiskType>> riskTypes) {
         for (Map.Entry<String, List<RiskType>> riskType : riskTypes.entrySet()) {
-            riskType.getValue()
-                    .forEach(s->s.apply());
+            riskType.getValue().forEach(s -> s.apply());
         }
+        double policyTotalCost = 
+        return policyTotalCost;
     }
 }

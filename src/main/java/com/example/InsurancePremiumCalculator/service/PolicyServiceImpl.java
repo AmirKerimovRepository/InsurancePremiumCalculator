@@ -34,10 +34,10 @@ public class PolicyServiceImpl implements PolicyService {
                 }
             }
         }
-        executor.execute(riskContainer);
+        double policyTotalCost = executor.execute(riskContainer);
         policy.setPolicyStatus(PolicyStatus.REGISTERED);
         riskContainer.clear();
-        return 0;
+        return policyTotalCost;
     }
 
 }

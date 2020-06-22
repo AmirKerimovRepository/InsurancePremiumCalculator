@@ -6,7 +6,7 @@ import java.math.BigDecimal;
 
 public class RiskTypeTheft implements RiskType {
 
-    private final Long ID =2L;
+    private final Long ID = 2L;
     private double coefficientTheft;
     private InsuranceRiskType insuranceRiskType;
     private BigDecimal value;
@@ -14,10 +14,11 @@ public class RiskTypeTheft implements RiskType {
     private final BigDecimal PREMIUM_DEFAULT_VALUE = new BigDecimal(15);
 
     // через конструктор приходит value (значение)
-    public RiskTypeTheft(BigDecimal value){
+    public RiskTypeTheft(BigDecimal value) {
         this.value = value;
     }
-    public RiskTypeTheft(){
+
+    public RiskTypeTheft() {
     }
 
     @Override
@@ -29,7 +30,7 @@ public class RiskTypeTheft implements RiskType {
         } else {
             setCoefficientTheft(0.11);
         }
-        return value.add(BigDecimal.valueOf(getCoefficientTheft()));
+        return value.multiply(BigDecimal.valueOf(getCoefficientTheft()));
     }
 
     public InsuranceRiskType getInsuranceRiskType() {
@@ -59,8 +60,6 @@ public class RiskTypeTheft implements RiskType {
     public void setValue(BigDecimal value) {
         this.value = value;
     }
-
-
 
 
 }

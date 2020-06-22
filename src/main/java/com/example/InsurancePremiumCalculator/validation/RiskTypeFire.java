@@ -32,7 +32,7 @@ public class RiskTypeFire implements RiskType {
             setCoefficientFire(0.014);
         }
 
-        return value.add(BigDecimal.valueOf(getCoefficientFire()));
+        return value.multiply(BigDecimal.valueOf(getCoefficientFire()));
     }
 
     public InsuranceRiskType getInsuranceRiskType() {
