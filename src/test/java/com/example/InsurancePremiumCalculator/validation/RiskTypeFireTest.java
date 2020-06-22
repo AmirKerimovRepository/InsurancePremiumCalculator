@@ -10,20 +10,18 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class RiskTypeFireTest {
 
-    public static final BigDecimal value = BigDecimal.valueOf(10);
-
     @Test
-    public void shouldCalculatePremiumFire(){
-        RiskTypeFire riskTypeFire = new RiskTypeFire();
-        BigDecimal actual = riskTypeFire.apply(value);
+    public void shouldCalculatePremiumFire() {
+        RiskTypeFire riskTypeFire = new RiskTypeFire(BigDecimal.valueOf(10));
+        BigDecimal actual = riskTypeFire.apply();
         assertEquals(BigDecimal.valueOf(0.14), actual);
     }
 
     @Test
-    public void negativeValueShouldThrowException(){
+    public void negativeValueShouldThrowException() {
         Throwable exception = assertThrows(IncorrectlyEnteredDataException.class, () -> {
-            RiskTypeFire riskTypeFire = new RiskTypeFire();
-            riskTypeFire.apply(BigDecimal.valueOf(-5));
+            RiskTypeFire riskTypeFire = new RiskTypeFire(BigDecimal.valueOf(-10));
+            riskTypeFire.apply();
         });
         assertEquals("Value cannot be negative!", exception.getMessage());
 
