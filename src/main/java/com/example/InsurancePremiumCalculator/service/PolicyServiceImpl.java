@@ -7,7 +7,6 @@ import com.example.InsurancePremiumCalculator.domain.SubInsuredObject;
 import com.example.InsurancePremiumCalculator.validation.*;
 import org.springframework.stereotype.Service;
 
-import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -35,7 +34,7 @@ public class PolicyServiceImpl implements PolicyService {
                 }
             }
         }
-        executor.execute(riskContainer,);
+        executor.execute(riskContainer);
         policy.setPolicyStatus(PolicyStatus.REGISTERED);
         riskContainer.clear();
         return 0;
