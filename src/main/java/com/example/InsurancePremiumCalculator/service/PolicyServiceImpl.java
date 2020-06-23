@@ -7,6 +7,7 @@ import com.example.InsurancePremiumCalculator.domain.SubInsuredObject;
 import com.example.InsurancePremiumCalculator.validation.*;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -15,7 +16,7 @@ import java.util.Map;
 public class PolicyServiceImpl implements PolicyService {
 
     @Override
-    public double calculatePremium(Policy policy) {
+    public BigDecimal calculatePremium(Policy policy) {
         Map<String, List<RiskType>> riskContainer = new HashMap<>();
         RiskExecutor executor = new RiskExecutor();
         for (InsuredObject insuredObjects : policy.getInsuredObject()) {
@@ -34,7 +35,7 @@ public class PolicyServiceImpl implements PolicyService {
                 }
             }
         }
-        double policyTotalCost = executor.execute(riskContainer);
+        BigDecimal policyTotalCost = executor.execute(riskContainer);
         policy.setPolicyStatus(PolicyStatus.REGISTERED);
         riskContainer.clear();
         return policyTotalCost;
