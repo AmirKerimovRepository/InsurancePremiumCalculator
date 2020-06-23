@@ -9,12 +9,9 @@ public class RiskExecutor {
     public BigDecimal execute(Map<String, List<RiskType>> riskTypes) {
 
         for (Map.Entry<String, List<RiskType>> riskType : riskTypes.entrySet()) {
-          riskType.getValue().forEach(RiskType::apply);
+            riskType.getValue().forEach(RiskType::apply);
         }
-        BigDecimal totalPremium = riskType.values()
-                .stream()
-                .reduce((riskTypeFire, riskTypeTheft) -> riskTypeFire.add(RiskTypeTheft);
-        return totalPremium;
+        return riskTypes.values().stream().flatMap(List::stream).map(RiskType::apply).reduce(BigDecimal::add).orElse(BigDecimal.ZERO);
 
 
     }

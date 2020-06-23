@@ -14,7 +14,6 @@ public class RiskTypeFire implements RiskType {
 
     private final BigDecimal PREMIUM_DEFAULT_VALUE = new BigDecimal(100);
 
-    // через конструктор приходит value (значение)
     public RiskTypeFire(BigDecimal value){
         this.value = value;
     }

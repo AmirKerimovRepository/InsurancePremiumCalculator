@@ -25,12 +25,12 @@ public class PolicyServiceImpl implements PolicyService {
 
                 if (InsuranceRiskType.FIRE.equals(subInsuredObjects.getInsuranceRiskType())) {
 
-                    RiskTypeFire riskTypeFire = new RiskTypeFire(subInsuredObjects.getSumInsured()); // сразу создаю с полученной суммой (В конструкторе RiskTypeFire передаю value)
+                    RiskTypeFire riskTypeFire = new RiskTypeFire(subInsuredObjects.getSumInsured());
                     riskContainer.put(policy.getPolicyNumber(), (List<RiskType>) riskTypeFire);
 
                 } else if (InsuranceRiskType.THEFT.equals(subInsuredObjects.getInsuranceRiskType())) {
 
-                    RiskTypeTheft riskTypeTheft = new RiskTypeTheft(subInsuredObjects.getSumInsured()); // сразу создаю с полученной суммой
+                    RiskTypeTheft riskTypeTheft = new RiskTypeTheft(subInsuredObjects.getSumInsured());
                     riskContainer.put(policy.getPolicyNumber(), (List<RiskType>) riskTypeTheft);
                 }
             }

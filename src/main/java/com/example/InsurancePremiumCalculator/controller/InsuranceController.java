@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.math.BigDecimal;
+
 
 @RestController
 public class InsuranceController {
@@ -18,7 +20,7 @@ public class InsuranceController {
     }
 
     @GetMapping("/api/v1/calculatePremium")
-    public double calculate(Policy policy) {
+    public BigDecimal calculate(Policy policy) {
         return policyService.calculatePremium(policy);
     }
 
