@@ -36,7 +36,7 @@ public class PolicyServiceImpl implements PolicyService {
             }
         }
         BigDecimal policyTotalCost = executor.execute(riskContainer);
-        policy.setPolicyStatus(PolicyStatus.REGISTERED);
+        policy.setPolicyStatus(PolicyStatus.APPROVED);
         riskContainer.clear();
         return policyTotalCost;
     }

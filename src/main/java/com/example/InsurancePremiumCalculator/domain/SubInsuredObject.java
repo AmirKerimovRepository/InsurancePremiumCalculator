@@ -7,9 +7,19 @@ import java.util.Objects;
 
 public class SubInsuredObject {
 
-    private String TV;
+    private String appliance;
     private BigDecimal sumInsured;
     private InsuranceRiskType insuranceRiskType;
+
+    public SubInsuredObject(String appliance, BigDecimal sumInsured, InsuranceRiskType insuranceRiskType) {
+        this.appliance = appliance;
+        this.sumInsured = sumInsured;
+        this.insuranceRiskType = insuranceRiskType;
+    }
+
+    public SubInsuredObject() {
+
+    }
 
 
     public BigDecimal getSumInsured() {
@@ -29,18 +39,18 @@ public class SubInsuredObject {
     }
 
     public String getTV() {
-        return TV;
+        return appliance;
     }
 
     public void setTV(String TV) {
-        this.TV = TV;
+        this.appliance = TV;
     }
 
 
     @Override
     public String toString() {
         return "SubInsuredObject{" +
-                "TV='" + TV + '\'' +
+                "TV='" + appliance + '\'' +
                 ", sumInsured=" + sumInsured +
                 ", insuranceRiskType=" + insuranceRiskType +
                 '}';
@@ -51,14 +61,14 @@ public class SubInsuredObject {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         SubInsuredObject that = (SubInsuredObject) o;
-        return Objects.equals(TV, that.TV) &&
+        return Objects.equals(appliance, that.appliance) &&
                 Objects.equals(sumInsured, that.sumInsured) &&
                 insuranceRiskType == that.insuranceRiskType;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(TV, sumInsured, insuranceRiskType);
+        return Objects.hash(appliance, sumInsured, insuranceRiskType);
     }
 
 }

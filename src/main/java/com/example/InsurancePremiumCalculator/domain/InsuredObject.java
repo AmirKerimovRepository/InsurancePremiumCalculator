@@ -5,8 +5,16 @@ import java.util.Objects;
 
 public class InsuredObject {
 
-    private String house;
+    private String property;
     private List<SubInsuredObject> subInsuredObjects;
+
+    public InsuredObject(String property, List<SubInsuredObject> subInsuredObjects) {
+        this.property = property;
+        this.subInsuredObjects = subInsuredObjects;
+    }
+    public InsuredObject(){
+
+    }
 
     public List<SubInsuredObject> getSubInsuredObjects() {
         return subInsuredObjects;
@@ -17,17 +25,17 @@ public class InsuredObject {
     }
 
     public String getHouse() {
-        return house;
+        return property;
     }
 
     public void setHouse(String house) {
-        this.house = house;
+        this.property = house;
     }
 
     @Override
     public String toString() {
         return "InsuredObject{" +
-                "house='" + house + '\'' +
+                "house='" + property + '\'' +
                 ", subInsuredObjects=" + subInsuredObjects +
                 '}';
     }
@@ -37,12 +45,12 @@ public class InsuredObject {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         InsuredObject that = (InsuredObject) o;
-        return Objects.equals(house, that.house) &&
+        return Objects.equals(property, that.property) &&
                 Objects.equals(subInsuredObjects, that.subInsuredObjects);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(house, subInsuredObjects);
+        return Objects.hash(property, subInsuredObjects);
     }
 }

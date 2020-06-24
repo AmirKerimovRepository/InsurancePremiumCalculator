@@ -16,6 +16,10 @@ public class Policy {
         this.insuredObject = insuredObject;
     }
 
+    public Policy(){
+
+    }
+
     public List<InsuredObject> getInsuredObject() {
         return insuredObject;
     }
