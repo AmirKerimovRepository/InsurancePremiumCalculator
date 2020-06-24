@@ -35,5 +35,4 @@ public class RiskTypeTheftTest {
         assertEquals("Value cannot be negative!", exception.getMessage());
 
     }
-
 }

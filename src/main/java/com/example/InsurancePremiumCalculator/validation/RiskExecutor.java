@@ -14,7 +14,6 @@ public class RiskExecutor {
         }
         return riskTypes.values().stream().flatMap(List::stream).map(RiskType::apply).reduce(BigDecimal::add).orElse(BigDecimal.ZERO);
 
-
     }
 
 }

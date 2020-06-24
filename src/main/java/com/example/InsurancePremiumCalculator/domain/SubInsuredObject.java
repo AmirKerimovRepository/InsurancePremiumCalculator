@@ -18,6 +18,7 @@ public class SubInsuredObject {
     }
 
     public SubInsuredObject() {
+
     }
 
 

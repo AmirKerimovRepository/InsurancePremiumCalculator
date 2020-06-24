@@ -31,5 +31,4 @@ public class PolicyServiceTest {
         BigDecimal actual = policyService.calculatePremium(policy);
         assertEquals(BigDecimal.valueOf(24), actual);
     }
-
 }

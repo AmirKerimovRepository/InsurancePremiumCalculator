@@ -23,5 +23,4 @@ public class InsuranceController {
     public BigDecimal calculate(Policy policy) {
         return policyService.calculatePremium(policy);
     }
-
 }

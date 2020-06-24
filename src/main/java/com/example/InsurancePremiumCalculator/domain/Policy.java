@@ -17,7 +17,6 @@ public class Policy {
     }
 
     public Policy() {
-
     }
 
     public List<InsuredObject> getInsuredObject() {

@@ -19,6 +19,7 @@ public class RiskTypeFire implements RiskType {
     }
 
     public RiskTypeFire() {
+
     }
 
     @Override
