@@ -12,7 +12,8 @@ public class InsuredObject {
         this.property = property;
         this.subInsuredObjects = subInsuredObjects;
     }
-    public InsuredObject(){
+
+    public InsuredObject() {
 
     }
 

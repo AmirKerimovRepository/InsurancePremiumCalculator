@@ -14,11 +14,11 @@ public class RiskTypeFire implements RiskType {
 
     private final BigDecimal PREMIUM_DEFAULT_VALUE = new BigDecimal(100);
 
-    public RiskTypeFire(BigDecimal value){
+    public RiskTypeFire(BigDecimal value) {
         this.value = value;
     }
 
-    public RiskTypeFire(){
+    public RiskTypeFire() {
     }
 
     @Override

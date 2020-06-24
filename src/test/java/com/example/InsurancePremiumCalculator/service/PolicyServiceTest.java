@@ -22,7 +22,7 @@ public class PolicyServiceTest {
     }
 
     @Test
-    public void shouldCalculatePremium(){
+    public void shouldCalculatePremium() {
 
         SubInsuredObject subInsuredObject = new SubInsuredObject("TV", BigDecimal.valueOf(1000), InsuranceRiskType.FIRE);
         InsuredObject insuredObject = new InsuredObject("House", (List<SubInsuredObject>) subInsuredObject);

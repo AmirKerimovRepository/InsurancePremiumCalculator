@@ -17,6 +17,7 @@ public class RiskTypeTheftTest {
         BigDecimal actual = riskTypeTheft.apply();
         assertEquals(BigDecimal.valueOf(0.5), actual);
     }
+
     //set_coefficient need to be 0.11 , actual = 20 * 0.11 = 2.2
     @Test
     public void shouldCalculatePremiumFireWithBiggerValue() {

@@ -19,6 +19,7 @@ public class RiskTypeTheft implements RiskType {
     }
 
     public RiskTypeTheft() {
+
     }
 
     @Override

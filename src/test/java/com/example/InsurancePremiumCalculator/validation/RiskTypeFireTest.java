@@ -17,6 +17,7 @@ public class RiskTypeFireTest {
         BigDecimal actual = riskTypeFire.apply();
         assertEquals(BigDecimal.valueOf(0.14), actual);
     }
+
     //set_coefficient need to be 0.024 , actual  = 120 * 0.024 = 2.88
     @Test
     public void shouldCalculatePremiumFireWithBiggerValue() {

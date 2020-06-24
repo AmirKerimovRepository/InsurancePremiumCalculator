@@ -16,7 +16,7 @@ public class Policy {
         this.insuredObject = insuredObject;
     }
 
-    public Policy(){
+    public Policy() {
 
     }
 
