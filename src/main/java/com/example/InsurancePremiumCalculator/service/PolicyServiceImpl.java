@@ -39,6 +39,7 @@ public class PolicyServiceImpl implements PolicyService {
         policy.setPolicyStatus(PolicyStatus.APPROVED);
         riskContainer.clear();
         return policyTotalCost;
+
     }
 
 }

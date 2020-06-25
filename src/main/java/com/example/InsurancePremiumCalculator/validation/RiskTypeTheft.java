@@ -61,5 +61,4 @@ public class RiskTypeTheft implements RiskType {
         this.value = value;
     }
 
-
 }

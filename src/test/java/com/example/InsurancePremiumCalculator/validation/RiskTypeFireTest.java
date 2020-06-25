@@ -35,4 +35,5 @@ public class RiskTypeFireTest {
         assertEquals("Value cannot be negative!", exception.getMessage());
 
     }
+
 }

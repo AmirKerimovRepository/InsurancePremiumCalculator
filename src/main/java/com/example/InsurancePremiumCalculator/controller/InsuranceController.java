@@ -22,5 +22,6 @@ public class InsuranceController {
     @GetMapping("/api/v1/calculatePremium")
     public BigDecimal calculate(Policy policy) {
         return policyService.calculatePremium(policy);
+
     }
 }

@@ -7,7 +7,6 @@ import com.example.InsurancePremiumCalculator.domain.SubInsuredObject;
 import com.example.InsurancePremiumCalculator.validation.InsuranceRiskType;
 import org.junit.jupiter.api.Test;
 
-
 import java.math.BigDecimal;
 import java.util.List;
 
@@ -21,6 +20,7 @@ public class PolicyServiceTest {
         this.policyService = policyService;
     }
 
+
     @Test
     public void shouldCalculatePremium() {
 
@@ -30,5 +30,6 @@ public class PolicyServiceTest {
 
         BigDecimal actual = policyService.calculatePremium(policy);
         assertEquals(BigDecimal.valueOf(24), actual);
+
     }
 }

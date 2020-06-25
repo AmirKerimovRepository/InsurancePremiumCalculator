@@ -63,5 +63,4 @@ public class RiskTypeFire implements RiskType {
         this.value = value;
     }
 
-
 }

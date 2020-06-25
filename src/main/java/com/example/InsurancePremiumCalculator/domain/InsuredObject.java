@@ -14,6 +14,7 @@ public class InsuredObject {
     }
 
     public InsuredObject() {
+
     }
 
     public List<SubInsuredObject> getSubInsuredObjects() {
