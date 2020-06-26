@@ -8,28 +8,26 @@ import com.example.InsurancePremiumCalculator.validation.InsuranceRiskType;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
-import java.util.List;
+import java.util.Collections;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class PolicyServiceTest {
 
-    private final PolicyServiceImpl policyService;
-
-    public PolicyServiceTest(PolicyServiceImpl policyService) {
-        this.policyService = policyService;
-    }
+    public final double TEST_VALUE = 24;
 
 
     @Test
     public void shouldCalculatePremium() {
 
-        SubInsuredObject subInsuredObject = new SubInsuredObject("TV", BigDecimal.valueOf(1000), InsuranceRiskType.FIRE);
-        InsuredObject insuredObject = new InsuredObject("House", (List<SubInsuredObject>) subInsuredObject);
-        Policy policy = new Policy("ENM102938311", PolicyStatus.REGISTERED, (List<InsuredObject>) insuredObject);
+        PolicyServiceImpl policyService = new PolicyServiceImpl();
 
-        BigDecimal actual = policyService.calculatePremium(policy);
-        assertEquals(BigDecimal.valueOf(24), actual);
+        SubInsuredObject subInsuredObject = new SubInsuredObject("TV", BigDecimal.valueOf(1000), InsuranceRiskType.FIRE);
+        InsuredObject insuredObject = new InsuredObject("House", Collections.singletonList(subInsuredObject));
+        Policy policyTest = new Policy("ENM102938311", PolicyStatus.REGISTERED, Collections.singletonList(insuredObject));
+        BigDecimal actual = policyService.calculatePremium(policyTest);
+        assertEquals(TEST_VALUE, actual);
+
 
     }
 }

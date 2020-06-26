@@ -8,6 +8,7 @@ import com.example.InsurancePremiumCalculator.validation.*;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -26,12 +27,12 @@ public class PolicyServiceImpl implements PolicyService {
                 if (InsuranceRiskType.FIRE.equals(subInsuredObjects.getInsuranceRiskType())) {
 
                     RiskTypeFire riskTypeFire = new RiskTypeFire(subInsuredObjects.getSumInsured());
-                    riskContainer.put(policy.getPolicyNumber(), (List<RiskType>) riskTypeFire);
+                    riskContainer.put(policy.getPolicyNumber(), Collections.singletonList(riskTypeFire));
 
                 } else if (InsuranceRiskType.THEFT.equals(subInsuredObjects.getInsuranceRiskType())) {
 
                     RiskTypeTheft riskTypeTheft = new RiskTypeTheft(subInsuredObjects.getSumInsured());
-                    riskContainer.put(policy.getPolicyNumber(), (List<RiskType>) riskTypeTheft);
+                    riskContainer.put(policy.getPolicyNumber(), Collections.singletonList(riskTypeTheft));
                 }
             }
         }
