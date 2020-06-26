@@ -8,7 +8,7 @@ public class RiskTypeFire implements RiskType {
 
 
     private final Long ID = 1L;
-    private double coefficientFire;
+    private BigDecimal coefficientFire;
     private InsuranceRiskType insuranceRiskType;
     private BigDecimal value;
 
@@ -27,12 +27,12 @@ public class RiskTypeFire implements RiskType {
         if (value.compareTo(BigDecimal.ZERO) < 0) {
             throw new IncorrectlyEnteredDataException("Value cannot be negative!");
         } else if (value.compareTo(PREMIUM_DEFAULT_VALUE) > 0) {
-            setCoefficientFire(0.024);
-        } else {
-            setCoefficientFire(0.014);
+            setCoefficientFire(BigDecimal.valueOf(0.024));
+        } else if (value.compareTo(PREMIUM_DEFAULT_VALUE) < 0) {
+            setCoefficientFire(BigDecimal.valueOf(0.014));
         }
 
-        return value.multiply(BigDecimal.valueOf(getCoefficientFire()));
+        return value.multiply(getCoefficientFire());
     }
 
     public InsuranceRiskType getInsuranceRiskType() {
@@ -43,13 +43,6 @@ public class RiskTypeFire implements RiskType {
         this.insuranceRiskType = insuranceRiskType;
     }
 
-    public double getCoefficientFire() {
-        return coefficientFire;
-    }
-
-    public void setCoefficientFire(double coefficientFire) {
-        this.coefficientFire = coefficientFire;
-    }
 
     public Long getID() {
         return ID;
@@ -62,5 +55,14 @@ public class RiskTypeFire implements RiskType {
     public void setValue(BigDecimal value) {
         this.value = value;
     }
+
+    public BigDecimal getCoefficientFire() {
+        return coefficientFire;
+    }
+
+    public void setCoefficientFire(BigDecimal coefficientFire) {
+        this.coefficientFire = coefficientFire;
+    }
+
 
 }

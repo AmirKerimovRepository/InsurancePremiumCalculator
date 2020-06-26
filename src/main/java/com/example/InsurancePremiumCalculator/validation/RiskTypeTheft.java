@@ -7,7 +7,7 @@ import java.math.BigDecimal;
 public class RiskTypeTheft implements RiskType {
 
     private final Long ID = 2L;
-    private double coefficientTheft;
+    private BigDecimal coefficientTheft;
     private InsuranceRiskType insuranceRiskType;
     private BigDecimal value;
 
@@ -26,11 +26,11 @@ public class RiskTypeTheft implements RiskType {
         if (value.compareTo(BigDecimal.ZERO) < 0) {
             throw new IncorrectlyEnteredDataException("Value cannot be negative!");
         } else if (value.compareTo(PREMIUM_DEFAULT_VALUE) >= 0) {
-            setCoefficientTheft(0.05);
-        } else {
-            setCoefficientTheft(0.11);
+            setCoefficientTheft(BigDecimal.valueOf(0.11));
+        } else if (value.compareTo(PREMIUM_DEFAULT_VALUE) < 0) {
+            setCoefficientTheft(BigDecimal.valueOf(0.05));
         }
-        return value.multiply(BigDecimal.valueOf(getCoefficientTheft()));
+        return value.multiply(getCoefficientTheft());
     }
 
     public InsuranceRiskType getInsuranceRiskType() {
@@ -41,13 +41,7 @@ public class RiskTypeTheft implements RiskType {
         this.insuranceRiskType = insuranceRiskType;
     }
 
-    public double getCoefficientTheft() {
-        return coefficientTheft;
-    }
 
-    public void setCoefficientTheft(double coefficientTheft) {
-        this.coefficientTheft = coefficientTheft;
-    }
 
     public Long getID() {
         return ID;
@@ -60,5 +54,14 @@ public class RiskTypeTheft implements RiskType {
     public void setValue(BigDecimal value) {
         this.value = value;
     }
+
+    public BigDecimal getCoefficientTheft() {
+        return coefficientTheft;
+    }
+
+    public void setCoefficientTheft(BigDecimal coefficientTheft) {
+        this.coefficientTheft = coefficientTheft;
+    }
+
 
 }
