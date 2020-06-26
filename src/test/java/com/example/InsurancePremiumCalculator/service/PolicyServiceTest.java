@@ -15,6 +15,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class PolicyServiceTest {
 
     public final double TEST_VALUE = 24;
+    private final double delta = 0.1;
 
 
     @Test
@@ -25,8 +26,8 @@ public class PolicyServiceTest {
         SubInsuredObject subInsuredObject = new SubInsuredObject("TV", BigDecimal.valueOf(1000), InsuranceRiskType.FIRE);
         InsuredObject insuredObject = new InsuredObject("House", Collections.singletonList(subInsuredObject));
         Policy policyTest = new Policy("ENM102938311", PolicyStatus.REGISTERED, Collections.singletonList(insuredObject));
-        BigDecimal actual = policyService.calculatePremium(policyTest);
-        assertEquals(TEST_VALUE, actual);
+        double actual = policyService.calculatePremium(policyTest).doubleValue();
+        assertEquals(TEST_VALUE, actual , delta);
 
 
     }
