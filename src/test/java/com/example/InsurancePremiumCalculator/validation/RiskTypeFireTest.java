@@ -17,15 +17,15 @@ public class RiskTypeFireTest {
     public void shouldCalculatePremiumFireWithDefaultValue() {
         RiskTypeFire riskTypeFire = new RiskTypeFire(BigDecimal.valueOf(10));
         double actual = riskTypeFire.apply().doubleValue();
-        assertEquals(0.14, actual,delta);
+        assertEquals(0.14, actual, delta);
     }
 
     //set_coefficient need to be 0.024 , actual  = 120 * 0.024 = 2.88
     @Test
-    public void shouldCalculatePremiumFireWithBiggerValue() {
+    public void shouldCalculatePremiumFireWithIrregularValue() {
         RiskTypeFire riskTypeFire = new RiskTypeFire(BigDecimal.valueOf(120));
         double actual = riskTypeFire.apply().doubleValue();
-        assertEquals(2.88, actual,delta);
+        assertEquals(2.88, actual, delta);
     }
 
     @Test

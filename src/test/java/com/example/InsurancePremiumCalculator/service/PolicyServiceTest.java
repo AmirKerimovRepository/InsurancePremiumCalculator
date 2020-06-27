@@ -27,7 +27,7 @@ public class PolicyServiceTest {
         InsuredObject insuredObject = new InsuredObject("House", Collections.singletonList(subInsuredObject));
         Policy policyTest = new Policy("ENM102938311", PolicyStatus.REGISTERED, Collections.singletonList(insuredObject));
         double actual = policyService.calculatePremium(policyTest).doubleValue();
-        assertEquals(TEST_VALUE, actual , delta);
+        assertEquals(TEST_VALUE, actual, delta);
 
 
     }

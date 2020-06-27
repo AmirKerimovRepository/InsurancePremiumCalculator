@@ -22,7 +22,7 @@ public class RiskTypeTheftTest {
 
     //set_coefficient need to be 0.11 , actual = 20 * 0.11 = 2.2
     @Test
-    public void shouldCalculatePremiumFireWithBiggerValue() {
+    public void shouldCalculatePremiumFireWithIrregularValue() {
         RiskTypeTheft riskTypeTheft = new RiskTypeTheft(BigDecimal.valueOf(20));
         double actual = riskTypeTheft.apply().doubleValue();
         assertEquals(2.2, actual, delta);

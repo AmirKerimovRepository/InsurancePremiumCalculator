@@ -13,7 +13,7 @@ public class RiskTypeTheft implements RiskType {
 
     private final BigDecimal PREMIUM_DEFAULT_VALUE = new BigDecimal(15);
 
-    // через конструктор приходит value (значение)
+
     public RiskTypeTheft(BigDecimal value) {
         this.value = value;
     }
@@ -40,7 +40,6 @@ public class RiskTypeTheft implements RiskType {
     public void setInsuranceRiskType(InsuranceRiskType insuranceRiskType) {
         this.insuranceRiskType = insuranceRiskType;
     }
-
 
 
     public Long getID() {
