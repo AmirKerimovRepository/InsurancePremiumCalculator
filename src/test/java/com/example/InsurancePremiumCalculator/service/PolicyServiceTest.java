@@ -9,12 +9,15 @@ import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
 import java.util.Collections;
+import java.util.LinkedList;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class PolicyServiceTest {
 
     public final double TEST_VALUE = 24;
+    public final double ALL_RISK_SUM_TEST_VALUE = 79;
     private final double delta = 0.1;
 
 
@@ -28,6 +31,31 @@ public class PolicyServiceTest {
         Policy policyTest = new Policy("ENM102938311", PolicyStatus.REGISTERED, Collections.singletonList(insuredObject));
         double actual = policyService.calculatePremium(policyTest).doubleValue();
         assertEquals(TEST_VALUE, actual, delta);
+
+
+    }
+
+    @Test
+    public void shouldCalculateAllRiskTypes(){
+
+        PolicyServiceImpl policyService = new PolicyServiceImpl();
+
+        SubInsuredObject subInsuredObjectTv = new SubInsuredObject("TV", BigDecimal.valueOf(1000), InsuranceRiskType.FIRE);
+        InsuredObject insuredObjectHouse = new InsuredObject("House", Collections.singletonList(subInsuredObjectTv));
+
+        SubInsuredObject subInsuredObjectPhone = new SubInsuredObject("Phone", BigDecimal.valueOf(500), InsuranceRiskType.THEFT);
+        InsuredObject insuredObjectGarage = new InsuredObject("Garage", Collections.singletonList(subInsuredObjectPhone));
+
+
+        List<InsuredObject> insuredObjects = new LinkedList<>();
+        insuredObjects.add(insuredObjectHouse);
+        insuredObjects.add(insuredObjectGarage);
+        Policy policyTest = new Policy("ENM102938311", PolicyStatus.REGISTERED, insuredObjects);
+        double actual = policyService.calculatePremium(policyTest).doubleValue();
+        assertEquals(ALL_RISK_SUM_TEST_VALUE, actual, delta);
+
+
+
 
 
     }
